@@ -25,4 +25,8 @@ db.users.insertMany([{
 },{
     "name" : "Alan",
  "Result" : "Win"
+},
+{
+    "name" : "Alan",
+    "Result" : "Lose"
 }])
