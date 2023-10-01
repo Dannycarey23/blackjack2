@@ -9,8 +9,8 @@ app.use(express.json());
 
 MongoClient.connect('mongodb://127.0.1:27017', { useUnifiedTopology: true })
     .then((client) => {
-        const db = client.db ('user_stats');
-        const userCollection = db.collection('user');
+        const db = client.db ('blackjack_users');
+        const userCollection = db.collection('users');
         const blackjackRouter = createRouter(userCollection);
         
         app.use('/api/blackjack', blackjackRouter);
