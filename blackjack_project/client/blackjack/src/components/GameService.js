@@ -1,7 +1,6 @@
-import React from 'react';
+const baseURL ='https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
 
-const GameService = () => {
-    return (  );
-}
- 
-export default GameService;
+export const getDeck = (() => {
+  return fetch(baseURL)
+  .then(res => res.json())
+})

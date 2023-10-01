@@ -1,7 +1,11 @@
 import React from 'react';
 
 const WelcomeForm = () => {
-    return (  );
+    return (
+        <>
+        <h1>Welcome Form lol</h1>
+        </>
+    )
 }
  
 export default WelcomeForm;

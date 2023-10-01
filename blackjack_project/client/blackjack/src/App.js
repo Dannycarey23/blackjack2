@@ -1,4 +1,4 @@
-import GameContainer from './components/GameContainer'
+import GameContainer from './container/GameContainer'
 import './App.css';
 
 function App() {

@@ -1,7 +1,11 @@
 import React from 'react';
 
 const UserStats = () => {
-    return (  );
-}
+    return ( 
+<>
+
+</>
+    )
+};
  
 export default UserStats;

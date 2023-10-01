@@ -1,6 +1,8 @@
-const Users = () => {
+const User = () => {
     return (
         <>
+        <h5> I'm the user </h5>
+        
         </>
     )
 };
