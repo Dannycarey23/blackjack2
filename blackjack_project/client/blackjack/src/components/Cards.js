@@ -1,7 +1,16 @@
-const Cards = () => {
+const Cards = ({cards, suit, image, value}) => {
+
+    console.log(cards)
 
     return(
-        <h1>Ace of Spades </h1>
+        <>
+
+        <div>
+            <h3>{cards.suit}{cards.value}</h3>
+        </div>
+        
+
+        </>
     )
 };
 
