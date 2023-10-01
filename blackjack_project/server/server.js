@@ -8,7 +8,17 @@ app.use(cors);
 app.use(express.json());
 
 MongoClient.connect('mongodb://127.0.1:27017', { useUnifiedTopology: true })
-.then((client) => {
-    const db = client.db ('user_stats');
-})
+    .then((client) => {
+        const db = client.db ('user_stats');
+        const userCollection = db.collection('user');
+        const blackjackRouter = createRouter(userCollection);
+        
+        app.use('/api/blackjack', blackjackRouter);
+    })
+    .catch(console.err);
+    
+
+app.listen(9000, function(){
+    console.log(`Listening on port ${this.address().port}`)
+})    
 
