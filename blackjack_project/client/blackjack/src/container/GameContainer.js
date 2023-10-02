@@ -16,6 +16,8 @@ const GameContainer = () => {
     const [playerTotal, setPlayerTotal] = useState(0)
     const [dealerTotal, setDealerTotal] = useState(0)
 
+
+
     useEffect (() => {
         getDeck()
         .then((deck) => {
@@ -45,7 +47,6 @@ const GameContainer = () => {
         while (newPlayerHand.length < 2 && newDealerHand.length < 2){
 
             let poppedCard = newDeck.pop()
-            console.log(poppedCard);
             newPlayerHand.push(poppedCard)
             setPlayerHand(newPlayerHand)
 
@@ -85,6 +86,25 @@ const GameContainer = () => {
 }
 
 
+    const playerTwist = () => {
+        if (playerHand.length >= 2){
+        let newDeck = [...fullDeck]
+        let newPlayerHand = [...playerHand]
+
+        let poppedCard = newDeck.pop()
+        newPlayerHand.push(poppedCard)
+
+
+        if (playerTotal > 21){
+           console.log('bust!!')
+        }
+
+        setPlayerHand(newPlayerHand)
+        setFullDeck(newDeck)
+
+    }}
+
+
 
 
     
@@ -92,6 +112,7 @@ const GameContainer = () => {
         <>
         <Router>
             <button onClick={dealCards}>Deal </button>
+            <button onClick={playerTwist}>Twist</button>
             <Routes>
                 <Route exact path="/" element={< Welcome />} />
                 <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} dealerHand = {dealerHand} />} />
