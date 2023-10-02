@@ -19,49 +19,52 @@ const GameContainer = () => {
         setFullDeck(deck.cards)
     })
     
-
     }, [])
 
-    const dealCards = () => {
+    const dealCards = () => { 
+
         setPlayerHand([])
         setDealerHand([])
 
         const newDeck = [...fullDeck]
         const newPlayerHand = [...playerHand]
         const newDealerHand = [...dealerHand]
+       
 
-        while (playerHand.length < 2 && dealerHand.length < 2)
-            if (playerHand.length === 0){
-                const poppedCard = newDeck.pop()
-                newPlayerHand.push(poppedCard)
-            }
+        while (newPlayerHand.length < 2 && newDealerHand.length < 2){
 
-            else if (playerHand.length === 1 && dealerHand.length === 0){
-                const poppedCard = newDeck.pop()
-                newDealerHand.push(poppedCard)
-            }
+            let poppedCard = newDeck.pop()
+            console.log(poppedCard);
+            newPlayerHand.push(poppedCard)
+            setPlayerHand(newPlayerHand)
 
-            else if (playerHand.length === 1 && dealerHand.length === 1){
-                const poppedCard = newDeck.pop()
-                newPlayerHand.push(poppedCard)
-            }
 
-            else {
-                const poppedCard = newDeck.pop()
-                newDealerHand.push(poppedCard)
-            }
+            let poppedCard2 = newDeck.pop()
+            newDealerHand.push(poppedCard2)
+            setDealerHand(newDealerHand)
 
-            console.log(newPlayerHand.length)
+            
+
+        }
+
+        setFullDeck(newDeck)
+
+        console.log(playerHand);
+        console.log(dealerHand);
+
     }
 
-    dealCards();
+
+
+
     
     return (
         <>
         <Router>
+            <button onClick={dealCards}>Deal </button>
             <Routes>
                 <Route exact path="/" element={< Welcome />} />
-                <Route exact path="/blackjack" element={< Blackjack fullDeck = {fullDeck} />} />
+                <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} dealerHand = {dealerHand} />} />
                 <Route exact path="/users" element={< Users />} />
             </Routes>
         </Router>
