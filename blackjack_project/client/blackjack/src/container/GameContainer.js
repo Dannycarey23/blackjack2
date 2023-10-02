@@ -33,10 +33,10 @@ const GameContainer = () => {
         setDealerTotal(dealerValue)
     }else if(dealerValue >= 16 && dealerValue <= 21){
         setDealerTotal(dealerValue)
-       // endGame();
+        endGame();
     }else{
         setDealerTotal('Bust')
-        // endGame();
+        endGame();
     }
     }, [dealerHand])
 
@@ -129,8 +129,8 @@ const GameContainer = () => {
     const dealersTurn = () => {
         if(dealerTotal < 16){
             dealerTwist()
-        }
-        console.log('endgame')
+        }else{
+        console.log(`endgame total ${dealerTotal}`)}
     }
 
 
@@ -145,6 +145,30 @@ const GameContainer = () => {
         setDealerHand(newDealerHand)
         setFullDeck(newDeck)
 
+    }
+
+    const endGame = () => {
+        console.log(`player total is ${playerTotal}`);
+        console.log(`dealer total is ${dealerTotal}`);
+
+        let localPlayerTotal = playerTotal
+        let localDealerTotal = dealerTotal
+
+        console.log(`player total is ${localPlayerTotal}`);
+        console.log(`dealer total is ${localDealerTotal}`);
+
+        if(playerTotal > dealerTotal){
+            console.log('player wins!')
+        }
+        else if (dealerTotal > playerTotal){
+            console.log('Dealer Wins!');
+        }
+        else if ( dealerTotal === playerTotal) {
+            console.log('draw');
+        }
+        else { console.log('error');}
+
+      
     }
 
 
