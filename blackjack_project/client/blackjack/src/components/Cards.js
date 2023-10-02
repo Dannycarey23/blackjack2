@@ -1,12 +1,13 @@
 const Cards = ({cards, suit, image, value}) => {
 
-    console.log(cards)
+
 
     return(
         <>
 
         <div>
             <h3>{cards.suit}{cards.value}</h3>
+            <img src = {cards.image}/>
         </div>
         
 

@@ -16,15 +16,45 @@ const GameContainer = () => {
     useEffect (() => {
         getDeck()
         .then((deck) => {
-        //     console.log(deck.deck_id)
-         dealDeck(deck.deck_id)
-         })
-        .then((res) => {
-            console.log(res);
-        //     setFullDeck(res)
-        
+        setFullDeck(deck.cards)
     })
+    
+
     }, [])
+
+    const dealCards = () => {
+        setPlayerHand([])
+        setDealerHand([])
+
+        const newDeck = [...fullDeck]
+        const newPlayerHand = [...playerHand]
+        const newDealerHand = [...dealerHand]
+
+        while (playerHand.length < 2 && dealerHand.length < 2)
+            if (playerHand.length === 0){
+                const poppedCard = newDeck.pop()
+                newPlayerHand.push(poppedCard)
+            }
+
+            else if (playerHand.length === 1 && dealerHand.length === 0){
+                const poppedCard = newDeck.pop()
+                newDealerHand.push(poppedCard)
+            }
+
+            else if (playerHand.length === 1 && dealerHand.length === 1){
+                const poppedCard = newDeck.pop()
+                newPlayerHand.push(poppedCard)
+            }
+
+            else {
+                const poppedCard = newDeck.pop()
+                newDealerHand.push(poppedCard)
+            }
+
+            console.log(newPlayerHand.length)
+    }
+
+    dealCards();
     
     return (
         <>
