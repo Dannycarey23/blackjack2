@@ -45,7 +45,7 @@ const GameContainer = () => {
     let playerValue = handValue(playerHand)
       if (playerValue > 21){
         setPlayerTotal("Bust")
-        maybeDealersTurn()
+        dealersTurn()
      }else{
         setPlayerTotal(playerValue)
      }
@@ -122,17 +122,19 @@ const GameContainer = () => {
     }
 }
 
-    const maybeDealersTurn = () => {
-        
-        if(dealerTotal >= 16){
-        console.log('endGame()')
-        }else{
-            dealersTurn()
+    const playerStick = () => {
+        dealersTurn()
+    }
+
+    const dealersTurn = () => {
+        if(dealerTotal < 16){
+            dealerTwist()
         }
+        console.log('endgame')
     }
 
 
-    const dealersTurn = () => {
+    const dealerTwist = () => {
         
         let newDeck = [...fullDeck]
         let newDealerHand = [...dealerHand]
@@ -153,6 +155,7 @@ const GameContainer = () => {
         <>
         <Router>
             <button onClick={dealCards}>Deal </button>
+            <button onClick={playerStick}>Stick</button>
             <button onClick={playerTwist}>Twist</button>
             <Routes>
                 <Route exact path="/" element={< Welcome />} />
