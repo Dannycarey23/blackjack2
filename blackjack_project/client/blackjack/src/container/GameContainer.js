@@ -28,16 +28,32 @@ const GameContainer = () => {
 
 
     useEffect(() => {
-      let playerValue = handValue(playerHand)
+    let dealerValue = handValue(dealerHand)
+    if(dealerValue < 16){
+        setDealerTotal(dealerValue)
+    }else if(dealerValue >= 16 && dealerValue <= 21){
+        setDealerTotal(dealerValue)
+       // endGame();
+    }else{
+        setDealerTotal('Bust')
+        // endGame();
+    }
+    }, [dealerHand])
+
+
+    useEffect(() => {
+    let playerValue = handValue(playerHand)
       if (playerValue > 21){
         setPlayerTotal("Bust")
-        dealersTurn()
+        maybeDealersTurn()
      }else{
         setPlayerTotal(playerValue)
      }
-    let dealerValue = handValue(dealerHand)
-      setDealerTotal(dealerValue)
-    }, [playerHand, dealerHand])
+    }, [playerHand])
+
+
+
+
 
     const dealCards = () => { 
 
@@ -106,7 +122,26 @@ const GameContainer = () => {
     }
 }
 
+    const maybeDealersTurn = () => {
+        
+        if(dealerTotal >= 16){
+        console.log('endGame()')
+        }else{
+            dealersTurn()
+        }
+    }
+
+
     const dealersTurn = () => {
+        
+        let newDeck = [...fullDeck]
+        let newDealerHand = [...dealerHand]
+
+        let poppedCard = newDeck.pop()
+        newDealerHand.push(poppedCard)
+
+        setDealerHand(newDealerHand)
+        setFullDeck(newDeck)
 
     }
 

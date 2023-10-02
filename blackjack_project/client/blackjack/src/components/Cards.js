@@ -1,4 +1,4 @@
-const Cards = ({cards, suit, image, value}) => {
+const Cards = ({cards, image, value}) => {
 
 
 
