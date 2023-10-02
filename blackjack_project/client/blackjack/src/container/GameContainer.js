@@ -13,6 +13,9 @@ const GameContainer = () => {
     const [playerHand, setPlayerHand] = useState([])
     const [dealerHand, setDealerHand] = useState([])
 
+    const [playerTotal, setPlayerTotal] = useState(0)
+    const [dealerTotal, setDealerTotal] = useState(0)
+
     useEffect (() => {
         getDeck()
         .then((deck) => {
@@ -20,6 +23,14 @@ const GameContainer = () => {
     })
     
     }, [])
+
+
+    useEffect(() => {
+      let playerValue = handValue(playerHand)
+      let dealerValue = handValue(dealerHand)
+      setPlayerTotal(playerValue)
+      setDealerTotal(dealerValue)
+    }, [playerHand, dealerHand])
 
     const dealCards = () => { 
 
@@ -49,10 +60,29 @@ const GameContainer = () => {
 
         setFullDeck(newDeck)
 
-        console.log(playerHand);
-        console.log(dealerHand);
+    }
+
+    const handValue = (hand) => {
+        let total = 0
+
+        for (let card of hand){
+            if (card.value ===  'KING' || card.value === 'QUEEN' || card.value === 'JACK'){
+                total += 10
+            }
+            else if (card.value === 'ACE'){
+                total += 11
+            }
+
+            else {
+            total += parseInt(card.value)
+        } 
 
     }
+
+    console.log(total);
+    return total
+
+}
 
 
 
