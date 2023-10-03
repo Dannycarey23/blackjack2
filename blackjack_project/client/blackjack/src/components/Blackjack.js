@@ -1,16 +1,14 @@
 import React from 'react';
 import Cards from './Cards';
 
-const Blackjack = ({playerHand, dealerHand}) => {
+const Blackjack = ({playerHand, dealerHand, result}) => {
     
-    // console.log(fullDeck);
-
     const playerNode = playerHand.map((cards) => {
-        return <Cards cards={cards} suit={cards.suit} value={cards.value} image={cards.image}/>
+        return <Cards cards={cards}/>
     })
 
     const dealerNode = dealerHand.map((cards) => {
-        return <Cards cards={cards}  value={cards.value} image={cards.image}/>
+        return <Cards cards={cards} />
     })
     
     
@@ -19,6 +17,8 @@ const Blackjack = ({playerHand, dealerHand}) => {
         <>
         <h1>Player</h1>
          {playerNode}
+
+         {result}
 
 
          <h1>Dealer</h1>
