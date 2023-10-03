@@ -16,6 +16,7 @@ const WelcomeForm = ({addUser}) => {
 
     return (
         <>
+
         <form onSubmit={handleSubmit}>
         <h2>Add User</h2>
         <label htmlFor='name'>Name</label>
@@ -24,6 +25,7 @@ const WelcomeForm = ({addUser}) => {
         <form action="http://localhost:3000/blackjack">
             <input type='submit' value='Start Game' />
         </form>
+
         </form>
         </>
     )

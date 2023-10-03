@@ -1,3 +1,4 @@
+import React from 'react';
 import GameContainer from './container/GameContainer'
 import './App.css';
 
