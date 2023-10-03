@@ -5,7 +5,7 @@ import WelcomeForm from './WelcomeForm';
 const Welcome = () => {
     return ( 
         <>
-        <h2>Welcome Page </h2>
+        <h1>Welcome Page </h1>
         <WelcomeForm/>
         </>
      );

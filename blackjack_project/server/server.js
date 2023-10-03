@@ -16,8 +16,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
         
         app.use('/api/blackjack', blackjackRouter);
     })
-    .catch(console.err);
-    
+    .catch(console.err);    
 
 app.listen(9000, function(){
     console.log(`Listening on port ${this.address().port}`)
