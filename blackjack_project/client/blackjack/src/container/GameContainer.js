@@ -206,11 +206,7 @@ const GameContainer = () => {
             <button onClick={playerTwist}>Twist</button>
             <Routes>
                 <Route exact path="/" element={< Welcome />} />
-<<<<<<< HEAD
-                <Route exact path="/blackjack" element={< Blackjack fullDeck = {fullDeck} element={<Instructions/>}/>} />
-=======
                 <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} dealerHand = {dealerHand} />} />
->>>>>>> 69a5ff3b1af12f19c643aeef189bcfafbdcac4ff
                 <Route exact path="/users" element={< Users />} />
             </Routes>
         </Router>
