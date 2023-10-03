@@ -13,16 +13,24 @@ const Blackjack = ({playerHand, dealerHand}) => {
         return <Cards cards={cards}  value={cards.value} image={cards.image}/>
     })
     
+    // const handleClick = (event) => dealCards();
+    // const playerStick = (event) => dealCards();
+    // const playerTwist = (event) => dealCards();
     
     
     return ( 
         <>
-        <h1>Player</h1>
+        <h1>Dealer</h1>
          {playerNode}
 
 
-         <h1>Dealer</h1>
+        <h1>Player</h1>
          {dealerNode}
+        {/* <form>
+        <button onClick={dealCards}>Deal </button>
+        <button onClick={playerStick}>Stick</button>
+        <button onClick={playerTwist}>Twist</button>
+        </form> */}
 
 
         </>

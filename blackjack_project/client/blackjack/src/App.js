@@ -1,4 +1,5 @@
 import GameContainer from './container/GameContainer'
+import NavBar from './components/NavBar';
 import './App.css';
 
 function App() {

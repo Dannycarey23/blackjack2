@@ -6,7 +6,6 @@ import Blackjack from '../components/Blackjack.js'
 import Users from '../components/Users.js'
 // import Cards from '../components/Cards';
 
-
 const GameContainer = () => {
 
     const [fullDeck, setFullDeck] = useState([])
@@ -16,16 +15,12 @@ const GameContainer = () => {
     const [playerTotal, setPlayerTotal] = useState(0)
     const [dealerTotal, setDealerTotal] = useState(0)
 
-
-
     useEffect (() => {
         getDeck()
         .then((deck) => {
         setFullDeck(deck.cards)
     })
-    
     }, [])
-
 
     useEffect(() => {
     let dealerValue = handValue(dealerHand)
@@ -36,17 +31,13 @@ const GameContainer = () => {
         setDealerTotal('Bust')
     }}, [dealerHand])
 
-
-
     useEffect(() => {
     if(dealerTotal < 16 && dealerHand.length >= 2){
         dealerTwist()}
     else if(dealerTotal >= 16 || dealerTotal === 'Bust'){
         endGame();
-    }
-        
+    }   
     }, [dealerTotal])
-
 
     useEffect(() => {
     let playerValue = handValue(playerHand)
@@ -57,10 +48,6 @@ const GameContainer = () => {
         setPlayerTotal(playerValue)
      }
     }, [playerHand])
-
-
-
-
 
     const dealCards = () => { 
 
@@ -115,9 +102,7 @@ const GameContainer = () => {
 
     console.log(total);
     return total
-
-}
-
+    }
 
     const playerTwist = () => {
         if (playerHand.length >= 2){
@@ -132,7 +117,6 @@ const GameContainer = () => {
         setFullDeck(newDeck)
 
     }
-}
 
     const playerStick = () => {
         dealersTurn()
@@ -154,7 +138,6 @@ const GameContainer = () => {
         // }else{
         // console.log(`endgame total ${dealerTotal}`)}
     }
-
 
     const dealerTwist = () => {
         
@@ -189,31 +172,20 @@ const GameContainer = () => {
             console.log('draw');
         }
         else { console.log('error');}
-
-      
     }
 
-
-
-
-    
     return (
         <>
         <Router>
-            <button onClick={dealCards}>Deal </button>
-            <button onClick={playerStick}>Stick</button>
-            <button onClick={playerTwist}>Twist</button>
             <Routes>
                 <Route exact path="/" element={< Welcome />} />
                 <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} dealerHand = {dealerHand} />} />
                 <Route exact path="/users" element={< Users />} />
             </Routes>
         </Router>
-
-        
-
         </>
     )
-};  
+}   
+}  
 
-export default GameContainer
+export default GameContainer;
