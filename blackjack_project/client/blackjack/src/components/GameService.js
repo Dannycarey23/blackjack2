@@ -1,4 +1,4 @@
-const baseURL ='https://www.deckofcardsapi.com/api/deck/new/draw/?count=1'
+const baseURL ='https://www.deckofcardsapi.com/api/deck/new/draw/?count=52'
 // const deckID = getDeck.deck_id
 
 

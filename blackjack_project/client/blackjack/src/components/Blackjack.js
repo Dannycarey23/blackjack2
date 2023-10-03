@@ -1,36 +1,30 @@
 import React from 'react';
 import Cards from './Cards';
 
-const Blackjack = ({fullDeck}) => {
+const Blackjack = ({playerHand, dealerHand}) => {
     
-    // console.log(fullDeck.cards);
+    // console.log(fullDeck);
 
-    // const cardNode = fullDeck['cards'].map((cards) => {
-    //     return <Cards cards={cards} suit={cards.suit} value={cards.value} image={cards.image}/>
-    // })
+    const playerNode = playerHand.map((cards) => {
+        return <Cards cards={cards} suit={cards.suit} value={cards.value} image={cards.image}/>
+    })
+
+    const dealerNode = dealerHand.map((cards) => {
+        return <Cards cards={cards}  value={cards.value} image={cards.image}/>
+    })
     
     
     
     return ( 
-
-        // const CommentList = ({comments}) => {
-
-        //     const commentNodes = comments.map(comment => {
-        //       return (
-        //         <Comment author={comment.author} key={comment.id}>{comment.text}</Comment>
-        //       );
-        //     });
-          
-        //     return(
-        //       <ul id="comment-list">
-        //         {commentNodes}
-        //       </ul>
-        //     )
-
-
-
         <>
-         {/* {cardNode} */}
+        <h1>Player</h1>
+         {playerNode}
+
+
+         <h1>Dealer</h1>
+         {dealerNode}
+
+
         </>
      );
 }
