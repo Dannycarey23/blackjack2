@@ -20,6 +20,17 @@ const UserService = {
     .then(res => res.json());
   },
 
+  updateUser(name) {
+    return fetch(serverURL, {
+      method: 'PUT',
+      body: JSON.stringify(name),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json());
+  }
+
 }
 
 export default UserService;
