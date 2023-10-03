@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import UserService from './UserService';
-import GameContainer from '../container/GameContainer';
 
 const WelcomeForm = ({addUser}) => {
     const[name, setName] = useState('');
