@@ -15,6 +15,7 @@ Extensions:
 - adding the gambling aspect
 - card animations
 - highest payout
+- Hidden card for dealer
 
 Advanced Extensions:
 

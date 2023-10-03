@@ -39,7 +39,9 @@ const GameContainer = () => {
 
 
     useEffect(() => {
-    if(dealerTotal >= 16 || dealerTotal === 'Bust'){
+    if(dealerTotal < 16 && dealerHand.length >= 2){
+        dealerTwist()}
+    else if(dealerTotal >= 16 || dealerTotal === 'Bust'){
         endGame();
     }
         
@@ -68,9 +70,12 @@ const GameContainer = () => {
         const newDeck = [...fullDeck]
         const newPlayerHand = [...playerHand]
         const newDealerHand = [...dealerHand]
-       
 
-        while (newPlayerHand.length < 2 && newDealerHand.length < 2){
+        console.log(`player hand is ${playerHand.length}`);
+        console.log(dealerHand.length);
+
+        if (playerHand.length < 2 && dealerHand.length < 1){
+       
 
             let poppedCard = newDeck.pop()
             newPlayerHand.push(poppedCard)
@@ -81,7 +86,9 @@ const GameContainer = () => {
             newDealerHand.push(poppedCard2)
             setDealerHand(newDealerHand)
 
-            
+            let poppedCard3 = newDeck.pop()
+            newPlayerHand.push(poppedCard3)
+            setPlayerHand(newPlayerHand)
 
         }
 
@@ -132,10 +139,20 @@ const GameContainer = () => {
     }
 
     const dealersTurn = () => {
-        if(dealerTotal < 16){
-            dealerTwist()
-        }else{
-        console.log(`endgame total ${dealerTotal}`)}
+
+        const newDeck = [...fullDeck]
+        const newDealerHand = [...dealerHand]
+
+        let poppedCard2 = newDeck.pop()
+        newDealerHand.push(poppedCard2)
+        setDealerHand(newDealerHand)
+
+        console.log(`dealer total is ${dealerTotal}`);
+
+        // if(dealerTotal < 16){
+        //     dealerTwist()
+        // }else{
+        // console.log(`endgame total ${dealerTotal}`)}
     }
 
 
