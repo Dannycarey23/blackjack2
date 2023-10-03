@@ -29,16 +29,21 @@ const GameContainer = () => {
 
     useEffect(() => {
     let dealerValue = handValue(dealerHand)
-    if(dealerValue < 16){
-        setDealerTotal(dealerValue)
-    }else if(dealerValue >= 16 && dealerValue <= 21){
-        setDealerTotal(dealerValue)
-        endGame();
-    }else{
+    if(dealerValue <= 21){
+    setDealerTotal(dealerValue)
+    } 
+    else {
         setDealerTotal('Bust')
+    }}, [dealerHand])
+
+
+
+    useEffect(() => {
+    if(dealerTotal >= 16 || dealerTotal === 'Bust'){
         endGame();
     }
-    }, [dealerHand])
+        
+    }, [dealerTotal])
 
 
     useEffect(() => {
