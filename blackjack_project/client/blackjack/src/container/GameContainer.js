@@ -16,6 +16,8 @@ const GameContainer = () => {
     const [playerTotal, setPlayerTotal] = useState(0)
     const [dealerTotal, setDealerTotal] = useState(0)
 
+    const [result, setResult] = useState('')
+
 
 
     useEffect (() => {
@@ -70,9 +72,6 @@ const GameContainer = () => {
         const newDeck = [...fullDeck]
         const newPlayerHand = [...playerHand]
         const newDealerHand = [...dealerHand]
-
-        console.log(`player hand is ${playerHand.length}`);
-        console.log(dealerHand.length);
 
         if (playerHand.length < 2 && dealerHand.length < 1){
        
@@ -147,12 +146,6 @@ const GameContainer = () => {
         newDealerHand.push(poppedCard2)
         setDealerHand(newDealerHand)
 
-        console.log(`dealer total is ${dealerTotal}`);
-
-        // if(dealerTotal < 16){
-        //     dealerTwist()
-        // }else{
-        // console.log(`endgame total ${dealerTotal}`)}
     }
 
 
@@ -173,22 +166,24 @@ const GameContainer = () => {
         console.log(`player total is ${playerTotal}`);
         console.log(`dealer total is ${dealerTotal}`);
 
-        let localPlayerTotal = playerTotal
-        let localDealerTotal = dealerTotal
-
-        console.log(`player total is ${localPlayerTotal}`);
-        console.log(`dealer total is ${localDealerTotal}`);
-
         if(playerTotal > dealerTotal){
-            console.log('player wins!')
+            console.log('Player wins!')
+            setResult('Player wins!')
         }
-        else if (dealerTotal > playerTotal){
-            console.log('Dealer Wins!');
+
+        else if (playerTotal != 'Bust' && dealerTotal === 'Bust'){
+            console.log('Player wins!')
+            setResult('Player wins!')
+
         }
-        else if ( dealerTotal === playerTotal) {
-            console.log('draw');
+
+        else if (dealerTotal >= playerTotal || playerTotal === 'Bust'){
+            console.log('Dealer Wins!')
+            setResult('Dealer Wins!')
         }
-        else { console.log('error');}
+
+        else { console.log('Error');
+        setResult('Error')}
 
       
     }
@@ -201,11 +196,11 @@ const GameContainer = () => {
         <>
         <Router>
             <button onClick={dealCards}>Deal </button>
-            <button onClick={playerStick}>Stick</button>
+            <button onClick={playerStick} disabled = {!result}>Stick</button>
             <button onClick={playerTwist}>Twist</button>
             <Routes>
                 <Route exact path="/" element={< Welcome />} />
-                <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} dealerHand = {dealerHand} />} />
+                <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} dealerHand = {dealerHand} result = {result} />} />
                 <Route exact path="/users" element={< Users />} />
             </Routes>
         </Router>
