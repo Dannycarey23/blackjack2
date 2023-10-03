@@ -2,11 +2,14 @@ import React from 'react';
 import WelcomeForm from './WelcomeForm';
 
 
-const Welcome = () => {
+
+const Welcome = ({}) => {
+
     return ( 
         <>
         <h1>Welcome Page </h1>
         <WelcomeForm/>
+
         </>
      );
 }
