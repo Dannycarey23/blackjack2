@@ -19,6 +19,7 @@ const GameContainer = () => {
 
     const [result, setResult] = useState('')
     const [buttons, setButtons] = useState(true)
+    const [user, setUser] = useState("")
 
 
 
@@ -64,6 +65,10 @@ const GameContainer = () => {
         setPlayerTotal(playerValue)
      }
     }, [playerHand])
+
+    const setNewUser = (newUser) => {
+        setUser(newUser)
+    }
 
 
 
@@ -209,7 +214,7 @@ const GameContainer = () => {
             <button onClick={playerStick} disabled = {buttons}>Stick</button>
             <button onClick={playerTwist} disabled = {buttons} >Twist</button>
             <Routes>
-                <Route exact path="/" element={< Welcome/>} />
+                <Route exact path="/" element={< Welcome setNewUser={setNewUser}/>} />
                 <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} element={<Instructions/>} dealerHand = {dealerHand} result = {result} />} />
                 <Route exact path="/users" element={< Users />} />
             </Routes>

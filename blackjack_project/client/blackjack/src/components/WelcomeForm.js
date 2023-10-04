@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import UserService from './UserService';
 
-const WelcomeForm = ({}) => {
+const WelcomeForm = ({setNewUser}) => {
     const[name, setName] = useState('');
 
     const handleNameChange = (event) => setName(event.target.value);
@@ -11,6 +11,7 @@ const WelcomeForm = ({}) => {
         UserService.addUser({
             name: name,
         })
+        setNewUser({name: name})
         setName('');
     }
 

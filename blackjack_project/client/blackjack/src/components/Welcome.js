@@ -3,12 +3,12 @@ import WelcomeForm from './WelcomeForm';
 
 
 
-const Welcome = ({}) => {
+const Welcome = ({setNewUser}) => {
 
     return ( 
         <>
         <h1>Welcome Page </h1>
-        <WelcomeForm/>
+        <WelcomeForm setNewUser={setNewUser}/>
 
         </>
      );
