@@ -20,6 +20,7 @@ const GameContainer = () => {
     const [result, setResult] = useState('')
     const [buttons, setButtons] = useState(true)
     const [user, setUser] = useState("")
+    const [allUsers, setAllUsers] = useState([])
 
 
 
@@ -30,6 +31,7 @@ const GameContainer = () => {
         getDeck()
         .then((deck) => {
         setFullDeck(deck.cards)
+        getAllUsers()
     })
     
     }, [])
@@ -71,6 +73,11 @@ const GameContainer = () => {
     }
 
 
+    const getAllUsers = () => {
+        return fetch('http://localhost:9000/api/users')
+          .then(res => res.json())
+          .then(data => setAllUsers(data))
+      }
 
 
 
@@ -216,7 +223,7 @@ const GameContainer = () => {
             <Routes>
                 <Route exact path="/" element={< Welcome setNewUser={setNewUser}/>} />
                 <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} element={<Instructions/>} dealerHand = {dealerHand} result = {result} />} />
-                <Route exact path="/users" element={< Users />} />
+                <Route exact path="/users" element={< Users allUsers={allUsers}/>} />
             </Routes>
         </Router>
 

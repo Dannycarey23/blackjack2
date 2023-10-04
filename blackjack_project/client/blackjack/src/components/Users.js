@@ -1,19 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {getUsers} from './UserService';
+
+import React from 'react';
+import User from './User';
 
 
-const Users = () => {
 
-    const [users, setUsers] = useState ([])
+const Users = ({allUsers}) => {
 
-    useEffect (() => {
-        getUsers()
-        .then((results) => {
-            setUsers(users)
-            console.log(users)
-        })
-
-    }, [])
+    const userElements = allUsers.map((user) => {
+        return <User user={user} key={user._id}/>
+    })
 
     const usersNode = users.map(() => {
         return <Users users={users} key={(users._id)}/>
@@ -21,9 +16,11 @@ const Users = () => {
     })
 
     return(
-      <>
-        {usersNode}
-      </>
+        <>
+        <h2> All Users </h2>
+        {userElements}
+        </>
+
     )
 }
 
