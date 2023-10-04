@@ -1,15 +1,12 @@
 import WelcomeForm from '../components/WelcomeForm';
 
-const serverURL ='http://localhost:9000/api/blackjack'
+const serverURL = 'http://localhost:9000/api/users'
 
-const UserService = {
-
-  getRecords() {
+export const getUsers = (() => {
   return fetch(serverURL)
   .then(res => res.json())
-  },
-
-  addUser(name) {
+  });
+  export const  addUser =((name) => {
     return fetch(serverURL, {
     method: 'POST',
     body: JSON.stringify(name),
@@ -18,9 +15,8 @@ const UserService = {
     }
   })
     .then(res => res.json());
-  },
-
-  updateUser(name) {
+  });
+   export const updateUser =((name) => {
     return fetch(serverURL, {
       method: 'PUT',
       body: JSON.stringify(name),
@@ -29,8 +25,4 @@ const UserService = {
       }
     })
     .then(res => res.json());
-  }
-
-}
-
-export default UserService;
+  });
