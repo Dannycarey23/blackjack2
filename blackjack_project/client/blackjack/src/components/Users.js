@@ -1,7 +1,5 @@
-
 import React from 'react';
 import User from './User';
-
 
 
 const Users = ({allUsers}) => {
@@ -10,10 +8,6 @@ const Users = ({allUsers}) => {
         return <User user={user} key={user._id}/>
     })
 
-    const usersNode = users.map(() => {
-        return <Users users={users} key={(users._id)}/>
-
-    })
 
     return(
         <>

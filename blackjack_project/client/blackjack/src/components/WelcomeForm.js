@@ -22,7 +22,7 @@ const WelcomeForm = ({setNewUser}) => {
         event.preventDefault();
         window.location.href = 'http://localhost:3000/blackjack';
     }
-
+return(
         <>
 
         <form onSubmit={handleSubmit}>

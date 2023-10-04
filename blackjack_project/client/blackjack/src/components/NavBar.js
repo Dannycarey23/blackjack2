@@ -9,7 +9,7 @@ const NavBar = () => {
                     <a href='/'>Home</a>
                 </li>
                 <li>
-                    <a href='/userstats'> User Stats</>
+                    <a href='/users'> User Stats </a>
                 </li>
             </ul>
         </>

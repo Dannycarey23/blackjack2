@@ -1,9 +1,9 @@
-const Cards = ({playerHand, dealerHand}) => {
+const Cards = ({card}) => {
 
     return(
         <>
          <div>
-            <img src = {cards.image}/>
+            <img src = {card.image}/>
         </div>
         </>
     )
