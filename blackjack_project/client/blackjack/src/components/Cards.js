@@ -1,16 +1,10 @@
 const Cards = ({cards}) => {
 
-
-
     return(
         <>
-
-        <div>
-            
+         <div>
             <img src = {cards.image}/>
         </div>
-        
-
         </>
     )
 };
