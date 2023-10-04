@@ -1,12 +1,12 @@
 import React from 'react';
 import WelcomeForm from './WelcomeForm';
 
+const Welcome = ({setNewUser}) => {
 
-const Welcome = () => {
     return ( 
         <>
-        <h1>Welcome Page</h1>
-        <WelcomeForm/>
+        <h1>Welcome Page </h1>
+        <WelcomeForm setNewUser={setNewUser}/>
         </>
      );
 }

@@ -19,6 +19,11 @@ const GameContainer = () => {
     const [dealerTotal, setDealerTotal] = useState(0)
 
     const [result, setResult] = useState('')
+    const [buttons, setButtons] = useState(true)
+    const [user, setUser] = useState("")
+
+
+
 
 
 
@@ -62,12 +67,19 @@ const GameContainer = () => {
      }
     }, [playerHand])
 
+    const setNewUser = (newUser) => {
+        setUser(newUser)
+    }
+
 
 
 
 
     const dealCards = () => { 
 
+        setButtons(false)
+
+        setResult('')
         setPlayerHand([])
         setDealerHand([])
 
@@ -141,6 +153,8 @@ const GameContainer = () => {
 
     const dealersTurn = () => {
 
+        setButtons(true)
+
         const newDeck = [...fullDeck]
         const newDealerHand = [...dealerHand]
 
@@ -169,19 +183,19 @@ const GameContainer = () => {
         console.log(`dealer total is ${dealerTotal}`);
 
         if(playerTotal > dealerTotal){
-            console.log('Player wins!')
-            setResult('Player wins!')
+            console.log('Win')
+            setResult('Win')
         }
 
         else if (playerTotal != 'Bust' && dealerTotal === 'Bust'){
-            console.log('Player wins!')
-            setResult('Player wins!')
+            console.log('Win')
+            setResult('Win')
 
         }
 
         else if (dealerTotal >= playerTotal || playerTotal === 'Bust'){
-            console.log('Dealer Wins!')
-            setResult('Dealer Wins!')
+            console.log('Lose')
+            setResult('Lose')
         }
 
         else { console.log('Error');
@@ -198,10 +212,10 @@ const GameContainer = () => {
         <>
         <Router>
             <button onClick={dealCards}>Deal </button>
-            <button onClick={playerStick} disabled = {!result}>Stick</button>
-            <button onClick={playerTwist}>Twist</button>
+            <button onClick={playerStick} disabled = {buttons}>Stick</button>
+            <button onClick={playerTwist} disabled = {buttons} >Twist</button>
             <Routes>
-                <Route exact path="/" element={< Welcome />} />
+                <Route exact path="/" element={< Welcome setNewUser={setNewUser}/>} />
                 <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} element={<Instructions/>} dealerHand = {dealerHand} result = {result} />} />
                 <Route exact path="/users" element={< Users />} />
             </Routes>
