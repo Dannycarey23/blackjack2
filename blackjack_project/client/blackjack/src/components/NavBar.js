@@ -5,10 +5,11 @@ const NavBar = () => {
         <>
             <ul>
                 <li>
+
                     <a href='/'>Home</a>
                 </li>
                 <li>
-                    <a href='userstats'> User Stats</a>
+                    <a href='/userstats'> User Stats</>
                 </li>
             </ul>
         </>

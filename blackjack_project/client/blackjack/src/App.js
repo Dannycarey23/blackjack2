@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   
   return (
+
     <>
     <NavBar />
     <GameContainer/>
@@ -15,3 +16,5 @@ function App() {
 }
 
 export default App;
+
+
