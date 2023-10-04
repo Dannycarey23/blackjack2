@@ -2,7 +2,7 @@ import React from 'react';
 import Cards from './Cards';
 import Instructions from './Instructions';
 
-const Blackjack = ({playerHand, dealerHand, result}) => {
+const Blackjack = ({playerHand, dealerHand, result, handleDeal, handleStick, handleTwist, buttons, user}) => {
     
     const playerNode = playerHand.map((cards) => {
         return <Cards cards={cards}/>
@@ -11,13 +11,19 @@ const Blackjack = ({playerHand, dealerHand, result}) => {
     const dealerNode = dealerHand.map((cards) => {
         return <Cards cards={cards} />
     })
+
+    console.log(user);
     
     
     
     return ( 
         <>
         <Instructions/>
-        <h1>Player</h1>
+        <button onClick={handleDeal}>Deal </button>
+         <button onClick={handleStick} disabled = {buttons}>Stick</button>
+         <button onClick={handleTwist} disabled = {buttons} >Twist</button>
+
+        <h1>{user.name}</h1>
          {playerNode}
 
          {result}
@@ -25,8 +31,6 @@ const Blackjack = ({playerHand, dealerHand, result}) => {
 
          <h1>Dealer</h1>
          {dealerNode}
-
-
         </>
      );
 }

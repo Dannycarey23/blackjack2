@@ -202,19 +202,26 @@ const GameContainer = () => {
       
     }
 
+    const handleDeal = () => {
+        dealCards()
+    }
 
+    const handleStick = () => {
+        playerStick()
+    }
+
+    const handleTwist = () => {
+        playerTwist()
+    }
 
 
     
     return (
         <>
         <Router>
-            <button onClick={dealCards}>Deal </button>
-            <button onClick={playerStick} disabled = {buttons}>Stick</button>
-            <button onClick={playerTwist} disabled = {buttons} >Twist</button>
             <Routes>
                 <Route exact path="/" element={< Welcome setNewUser={setNewUser}/>} />
-                <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} element={<Instructions/>} dealerHand = {dealerHand} result = {result} />} />
+                <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} dealerHand = {dealerHand} result = {result} handleDeal = {handleDeal} handleStick = {handleStick} handleTwist = {handleTwist} buttons ={buttons} user ={user}/>} />
                 <Route exact path="/users" element={< Users />} />
             </Routes>
         </Router>

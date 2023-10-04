@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
 import {getUser, addUser, updateUser} from './UserService'
+import { useNavigate } from "react-router-dom";
+
+
 
 const WelcomeForm = ({setNewUser}) => {
     const[name, setName] = useState('');
+
+    const navigate = useNavigate();
 
     const handleNameChange = (event) => setName(event.target.value);
 
@@ -15,6 +20,10 @@ const WelcomeForm = ({setNewUser}) => {
         setName('');
     }
 
+    const handleGameStart = () => {
+        navigate("/blackjack")
+    }
+
 
     return (
         <>
@@ -24,11 +33,13 @@ const WelcomeForm = ({setNewUser}) => {
         <label htmlFor='name'>Name</label>
         <input type='text' id='name' name='name' value={name} require onChange={handleNameChange}/>
         <input type='submit' name='submit' value='Save'/>
-        <form action="/blackjack">
+        </form>
+
+        <form onSubmit={handleGameStart}>
             <input type='submit' value='Start Game'/>
         </form>
 
-        </form>
+     
         </>
     )
 };
