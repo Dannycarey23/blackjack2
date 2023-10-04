@@ -20,6 +20,10 @@ const Blackjack = () => {
         getDeck()
         .then((deck) => {
         setFullDeck(deck.cards)
+const Blackjack = ({playerHand, dealerHand, result}) => {
+    
+    const playerNode = playerHand.map((cards) => {
+        return <Cards cards={cards}/>
     })
     }, [])
 
@@ -82,6 +86,7 @@ const Blackjack = () => {
     const handValue = (hand) => {
         let total = 0
 
+
         for (let card of hand){
             if (card.value ===  'KING' || card.value === 'QUEEN' || card.value === 'JACK'){
                 total += 10
@@ -89,6 +94,8 @@ const Blackjack = () => {
             else if (card.value === 'ACE'){
                 total += 11
             }
+         {result}
+
 
             else {
             total += parseInt(card.value)
