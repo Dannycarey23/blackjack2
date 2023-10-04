@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 const WelcomeForm = ({setNewUser}) => {
+
     const[name, setName] = useState('');
 
     const navigate = useNavigate();
@@ -25,7 +27,11 @@ const WelcomeForm = ({setNewUser}) => {
     }
 
 
-    return (
+    const handleClick = (event) => {
+        event.preventDefault();
+        window.location.href = 'http://localhost:3000/blackjack';
+    }
+return(
         <>
 
         <form onSubmit={handleSubmit}>

@@ -1,13 +1,13 @@
-const Cards = ({cards}) => {
+const Cards = ({card}) => {
 
     return(
         <>
          <div>
-            <img src = {cards.image}/>
+            <img src = {card.image}/>
         </div>
         </>
     )
-};
+}
 
 export default Cards;
 

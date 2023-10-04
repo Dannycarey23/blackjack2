@@ -6,15 +6,11 @@ const Blackjack = ({playerHand, dealerHand, result, handleDeal, handleStick, han
     
     const playerNode = playerHand.map((cards) => {
         return <Cards cards={cards}/>
-    })
 
-    const dealerNode = dealerHand.map((cards) => {
-        return <Cards cards={cards} />
     })
-
-    console.log(user);
-    
-    
+    const dealerNode = dealerHand.map((card) => {
+        return <Cards card={card} />
+    })
     
     return ( 
         <>
@@ -31,8 +27,9 @@ const Blackjack = ({playerHand, dealerHand, result, handleDeal, handleStick, han
 
          <h1>Dealer</h1>
          {dealerNode}
+
+
         </>
      );
 }
-
 export default Blackjack;

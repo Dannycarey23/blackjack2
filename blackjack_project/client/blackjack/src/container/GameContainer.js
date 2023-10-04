@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { getDeck, dealDeck }  from '../components/GameService';
@@ -19,6 +20,7 @@ const GameContainer = () => {
     const [result, setResult] = useState('')
     const [buttons, setButtons] = useState(true)
     const [user, setUser] = useState("")
+    const [allUsers, setAllUsers] = useState([])
 
 
 
@@ -29,6 +31,7 @@ const GameContainer = () => {
         getDeck()
         .then((deck) => {
         setFullDeck(deck.cards)
+        getAllUsers()
     })
     
     }, [])
@@ -70,6 +73,11 @@ const GameContainer = () => {
     }
 
 
+    const getAllUsers = () => {
+        return fetch('http://localhost:9000/api/users')
+          .then(res => res.json())
+          .then(data => setAllUsers(data))
+      }
 
 
 
@@ -230,6 +238,7 @@ const GameContainer = () => {
 
         </>
     )
-};  
 
-export default GameContainer
+};
+
+export default GameContainer;
