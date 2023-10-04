@@ -28,5 +28,5 @@ const serverURL ='http://localhost:9000/api/users'
       }
     })
     .then(res => res.json());
-  });
 
+  });

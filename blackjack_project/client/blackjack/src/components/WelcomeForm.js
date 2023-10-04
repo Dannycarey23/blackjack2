@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import UserService from './UserService';
+import {getUser, addUser, updateUser} from './UserService'
 
 
 const WelcomeForm = ({setNewUser}) => {
@@ -10,7 +10,7 @@ const WelcomeForm = ({setNewUser}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        UserService.addUser({
+        addUser({
             name: name,
         })
         setNewUser({name: name})

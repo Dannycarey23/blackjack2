@@ -6,7 +6,6 @@ import Welcome from '../components/Welcome.js'
 import Blackjack from '../components/Blackjack.js'
 import Users from '../components/Users.js'
 import Instructions from '../components/Instructions';
-// import Cards from '../components/Cards';
 
 
 const GameContainer = () => {
