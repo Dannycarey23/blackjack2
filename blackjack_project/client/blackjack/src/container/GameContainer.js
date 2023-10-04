@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { getDeck, dealDeck }  from '../components/GameService';
@@ -230,6 +231,7 @@ const GameContainer = () => {
 
         </>
     )
-};  
 
-export default GameContainer
+};
+
+export default GameContainer;

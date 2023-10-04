@@ -1,4 +1,4 @@
-const Cards = ({cards}) => {
+const Cards = ({playerHand, dealerHand}) => {
 
     return(
         <>
@@ -7,7 +7,7 @@ const Cards = ({cards}) => {
         </div>
         </>
     )
-};
+}
 
 export default Cards;
 

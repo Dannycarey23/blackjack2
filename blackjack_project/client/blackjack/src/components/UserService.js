@@ -1,11 +1,13 @@
 import WelcomeForm from '../components/WelcomeForm';
 
-const serverURL = 'http://localhost:9000/api/users'
+const serverURL ='http://localhost:9000/api/users'
 
-export const getUsers = (() => {
+
+  export const getUsers = (() => {
   return fetch(serverURL)
   .then(res => res.json())
   });
+
   export const  addUser =((name) => {
     return fetch(serverURL, {
     method: 'POST',
@@ -16,6 +18,7 @@ export const getUsers = (() => {
   })
     .then(res => res.json());
   });
+
    export const updateUser =((name) => {
     return fetch(serverURL, {
       method: 'PUT',
@@ -25,4 +28,5 @@ export const getUsers = (() => {
       }
     })
     .then(res => res.json());
+
   });
