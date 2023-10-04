@@ -1,9 +1,9 @@
 import WelcomeForm from '../components/WelcomeForm';
 
-const serverURL ='http://localhost:9000/api/blackjack'
+const serverURL ='http://localhost:9000/api/users'
 
 
-  export const getRecords = (() => {  //getUsers?? 
+  export const getUsers = (() => {
   return fetch(serverURL)
   .then(res => res.json())
   });
