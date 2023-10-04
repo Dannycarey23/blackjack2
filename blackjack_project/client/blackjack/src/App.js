@@ -1,14 +1,20 @@
 import React, {useState} from 'react';
 import GameContainer from './container/GameContainer'
+import NavBar from './components/NavBar'
 import './App.css';
 
 function App() {
   
   return (
  
-    <GameContainer/>
+    <>
+      <NavBar/>
+      <GameContainer/>
+    </>
 
   );
 }
 
 export default App;
+
+

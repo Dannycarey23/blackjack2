@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import UserService from './UserService';
 
+
 const WelcomeForm = ({setNewUser}) => {
+
     const[name, setName] = useState('');
 
     const handleNameChange = (event) => setName(event.target.value);
@@ -16,7 +18,11 @@ const WelcomeForm = ({setNewUser}) => {
     }
 
 
-    return (
+    const handleClick = (event) => {
+        event.preventDefault();
+        window.location.href = 'http://localhost:3000/blackjack';
+    }
+
         <>
 
         <form onSubmit={handleSubmit}>
@@ -24,7 +30,7 @@ const WelcomeForm = ({setNewUser}) => {
         <label htmlFor='name'>Name</label>
         <input type='text' id='name' name='name' value={name} require onChange={handleNameChange}/>
         <input type='submit' name='submit' value='Save'/>
-        <form action="/blackjack">
+        <form action='http://localhost:3000/blackjack'>
             <input type='submit' value='Start Game'/>
         </form>
 
