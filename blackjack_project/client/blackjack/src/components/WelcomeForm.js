@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import UserService from './UserService';
 
-const WelcomeForm = ({addUser}) => {
+const WelcomeForm = ({}) => {
     const[name, setName] = useState('');
 
     const handleNameChange = (event) => setName(event.target.value);
@@ -14,6 +14,7 @@ const WelcomeForm = ({addUser}) => {
         setName('');
     }
 
+
     return (
         <>
 
@@ -22,8 +23,8 @@ const WelcomeForm = ({addUser}) => {
         <label htmlFor='name'>Name</label>
         <input type='text' id='name' name='name' value={name} require onChange={handleNameChange}/>
         <input type='submit' name='submit' value='Save'/>
-        <form action="http://localhost:3000/blackjack">
-            <input type='submit' value='Start Game' />
+        <form action="/blackjack">
+            <input type='submit' value='Start Game'/>
         </form>
 
         </form>
