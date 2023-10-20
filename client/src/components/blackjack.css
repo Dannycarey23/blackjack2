@@ -1,0 +1,45 @@
+/* body{
+    background-color: rgb(6, 125, 4);
+}  */
+
+.blackJackButtons{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.bjBtns{
+    padding: 3%;
+    background-color: crimson;
+    color: white;
+}
+
+.bjBtns:hover{
+    background-color: gold;
+}
+
+
+.gameTableDiv{
+   display: block;
+}
+
+ .playerDiv{
+    /* display: inline-flex; */
+    /* flex-wrap: nowrap; */
+    display: inline;
+    width: 50%;
+} 
+   
+.dealerDiv{
+    /* display: inline-flex;
+    flex-wrap: nowrap;
+    flex-wrap: wrap; */
+    display: inline;
+    width: 50%;
+
+}  
+
+.resultDiv{
+    text-align: center;
+}
+

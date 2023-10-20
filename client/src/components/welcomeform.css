@@ -1,0 +1,15 @@
+.warningText{
+    color: red;
+    background-color: black;
+    border-radius: 15px;;
+    border: black solid thin;
+    margin-right: 18%;
+    margin-left: 18%;
+    padding: 4%;
+   
+}
+
+.startButton{
+    display: flex;
+    justify-content: center;
+}

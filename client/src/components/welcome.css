@@ -1,0 +1,14 @@
+.welcomeDiv{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin-top: 50%;
+}
+
+.welcomeFormParent{
+    border: white black solid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}

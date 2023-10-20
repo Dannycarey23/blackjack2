@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  font-family: 'Titillium Web', sans-serif;
+  display: flex;
+  justify-content: center;
+  background-image: url('./assets/cardsFrame.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.popup-content {
+  margin: auto;
+  background: darkgreen;
+  width: 30%;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+.popup-arrow {
+  color: darkgreen;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
+}

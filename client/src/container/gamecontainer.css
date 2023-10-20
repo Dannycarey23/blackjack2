@@ -1,0 +1,22 @@
+.mainContainer{
+    background-color: green;
+    border: gold thick solid;
+    border-radius: 15px;
+    position: absolute;
+    top: 21%;
+    left: 19%;
+    bottom: 19%;
+    right: 20%;
+    text-align: center;   
+    overflow: visible;
+}
+
+button{
+    padding:2%;
+    border-radius: 25px;
+}
+
+ul {
+    list-style-type: none;
+}
+
