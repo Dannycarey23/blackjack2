@@ -38,5 +38,5 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
   .catch(console.error);
 
 app.listen(9000, function() {
-  console.log(`Hotel server running on port ${this.address().port}`);
+  console.log(`Server running on port ${this.address().port}`);
 });

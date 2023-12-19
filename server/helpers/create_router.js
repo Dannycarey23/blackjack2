@@ -6,7 +6,6 @@ const createRouter = function(collection) {
 
 
     router.get('/', (req, res) => {
-        console.log("hello");
         collection
         .find()
         .toArray()
