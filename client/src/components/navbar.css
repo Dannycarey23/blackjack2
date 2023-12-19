@@ -1,9 +1,7 @@
-.navBarUL{
-    /* display: flex;
-    flex-wrap: nowrap;
-    justify-content: center; */
+.navBar{
+    text-align: center;
 }
-
-.userStatLink{
-    /* padding-left: 5em; */
+.navBar li{
+    display: inline;
+    padding: 2%;
 }

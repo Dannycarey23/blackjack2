@@ -9,17 +9,16 @@ const NavBar = () => {
         navigate('/users')
     }
     return (
-        <>
-            <ul className='navBarUL'>
+        <div className='navBar'>
+            <ul >
                 <li>
-
                     <a href='/'>Home</a>
                 </li>
-                <li className='userStatLink'>
-                    <p onClick={handleUsers}>User Stats</p>
+                <li >
+                    <a href='' onClick={handleUsers}>User Stats</a>
                 </li>
             </ul>
-        </>
+        </div>
     )
 }
 
