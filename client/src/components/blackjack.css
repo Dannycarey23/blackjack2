@@ -10,6 +10,11 @@
     
 }
 
+.gameHeader {
+    height: 10%;
+    margin: 0;
+}
+
 .bjBtns{
     padding: 3%;
     background-color: crimson;

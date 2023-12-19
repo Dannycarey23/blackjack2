@@ -27,17 +27,17 @@ const Blackjack = ({playerHand, dealerHand, result, handleDeal, handleStick, han
 
             
             <div className='playerDiv'>
-                <h1><u>{user.name}</u></h1>
+                <h1 className = 'gameHeader'><u>{user.name}</u></h1>
                 {playerNode}
             </div>
 
-            <div className='dealerDiv'> 
-                <h1><u>Dealer</u></h1>
-                {dealerNode}
+            <div className='resultDiv'>
+                <h1 className='gameHeader'> {result} </h1>
             </div>
 
-            <div className='resultDiv'>
-                <h1> Result: {result} </h1>
+            <div className='dealerDiv'> 
+                {dealerNode}
+                <h1 className = 'gameHeader'><u>Dealer</u></h1>
             </div>
 
         </div>
