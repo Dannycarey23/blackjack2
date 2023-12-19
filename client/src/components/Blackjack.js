@@ -16,6 +16,8 @@ const Blackjack = ({playerHand, dealerHand, result, handleDeal, handleStick, han
     return ( 
 
         <>
+        <div className='gameTableDiv'>
+            
             <div className='blackJackButtons'>
                 <Instructions/>
                 <button className="bjBtns" onClick={handleDeal}>Deal </button>
@@ -23,21 +25,22 @@ const Blackjack = ({playerHand, dealerHand, result, handleDeal, handleStick, han
                 <button className="bjBtns" onClick={handleTwist} disabled = {buttons} >Twist</button>
             </div>
 
-            <div className='gameTableDiv'>
-                <div className='playerDiv'>
-                    <h1><u>{user.name}</u></h1>
-                    {playerNode}
-                </div>
-
-                <div className='dealerDiv'> 
-                    <h1><u>Dealer</u></h1>
-                    {dealerNode}
-                </div>
-
-                <div className='resultDiv'>
-                   <h1> Result: {result} </h1>
-                </div>
+            
+            <div className='playerDiv'>
+                <h1><u>{user.name}</u></h1>
+                {playerNode}
             </div>
+
+            <div className='dealerDiv'> 
+                <h1><u>Dealer</u></h1>
+                {dealerNode}
+            </div>
+
+            <div className='resultDiv'>
+                <h1> Result: {result} </h1>
+            </div>
+
+        </div>
         </>
      );
 }
