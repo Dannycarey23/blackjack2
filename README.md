@@ -1,7 +1,19 @@
 # blackjack2
-Create a BlackJack app. 
+Create an application where users can play a card game, similar to BlackJack, and can view statistics on their wins and losses. 
 
-MVP:
+## Set up
+
+- Clone the repository onto local machine
+
+- In a terminal, set the active folder to: 'blackjack2 > server'
+- run command "npm install"
+- run command "npm run server:dev" to start the backend
+
+- In a second terminal, set the active folder to: 'blackjack2 > client'
+- run command "npm install" in terminal
+- run command "npm start" to start the frontend
+
+## MVP
 
 - welcome page where user enters a username
 - rules / game instructions pop up
@@ -11,34 +23,14 @@ MVP:
 - recording wins/losses in database
 - user stat page to display their name & recent statistics
 
-Extensions:
+## Future Extensions
 
 - adding the gambling aspect
 - card animations
 - highest payout
 - Hidden card for dealer
 
-Advanced Extensions:
+## Advanced Extensions
 
 - display win probability during play
 - adding double-or-nothing / split
-
-## Installation guide
-
-Set the active folder to: 'blackjack2 > blackjack_project > client > blackjack'
-
-
-- "npm install"
-- "npm install react-router-dom"
-- "npm install reactjs-popup"
-
-In a second terminal, set the active folder to: 'blackjack2 > blackjack_project > server'
-
-
-- "npm install mongodb@3.5.7"
-- "npm install nodemon"
-- "npm install express"
-- "npm run server:dev"
-
-
-"npm start" in ther server & client terminals.
