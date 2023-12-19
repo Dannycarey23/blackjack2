@@ -38,6 +38,7 @@ In a second terminal, set the active folder to: 'blackjack2 > blackjack_project 
 - "npm install mongodb@3.5.7"
 - "npm install nodemon"
 - "npm install express"
+- "npm run server:dev"
 
 
 "npm start" in ther server & client terminals.
