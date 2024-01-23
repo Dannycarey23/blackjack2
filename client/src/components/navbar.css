@@ -1,7 +1,24 @@
 .navBar{
     text-align: center;
+    background-color: green;
+    border-bottom: gold thick solid;
+    margin-top:0;
+  
 }
+
+.navBar ul{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding:0;
+}
+
 .navBar li{
-    display: inline;
-    padding: 2%;
+    color: white;
+    padding:2%;
 }
+
+.navBar li:hover{
+    background-color: crimson;
+}
+

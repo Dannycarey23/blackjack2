@@ -19,6 +19,9 @@
     padding: 3%;
     background-color: crimson;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .bjBtns:hover{
