@@ -25,6 +25,17 @@
     background-color: gold;
 }
 
+.rulesDiv{
+    text-align: center;
+    border: thick solid gold;
+    border-radius: 10px;
+
+}
+
+.rulesDiv li{
+    text-align: left;
+    list-style-type: disc;
+}
 
 .gameTableDiv{
    height: 100%;
