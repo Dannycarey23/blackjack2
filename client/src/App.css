@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 html{
   height: 100%;
   width: 100%;
@@ -8,7 +9,6 @@ html{
 
 body{
   font-family: 'Titillium Web', sans-serif;
-  display: flex;
   justify-content: center;
   background-image: url('./assets/cardsFrame.jpg');
   background-repeat: no-repeat;

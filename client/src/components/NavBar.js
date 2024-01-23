@@ -9,6 +9,10 @@ const NavBar = () => {
     const handleHome = () => {
         navigate('/')
     }
+
+    const handleGame = () => {
+        navigate('/blackjack')
+    }
     
     const handleUsers = () => {
         navigate('/users')
@@ -18,6 +22,9 @@ const NavBar = () => {
             <ul >
                 <li onClick={handleHome}>
                     Home
+                </li>
+                <li onClick={handleGame}>
+                    Play
                 </li>
                 <li onClick={handleUsers}>
                     User Stats

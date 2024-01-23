@@ -21,7 +21,9 @@ const Users = ({allUsers, user}) => {
 
     return(
         <div className='usersBox'>
-            <h2><u>{user.name}</u></h2>
+            {user ?
+                <h2><u>{user.name}</u></h2>:
+                <h2><u>Player</u></h2>}
             {userElements}
         </div>
 
