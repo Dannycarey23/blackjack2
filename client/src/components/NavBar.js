@@ -5,17 +5,22 @@ import './navbar.css'
 const NavBar = () => {
 
     const navigate = useNavigate()
+
+    const handleHome = () => {
+        navigate('/')
+    }
+    
     const handleUsers = () => {
         navigate('/users')
     }
     return (
         <div className='navBar'>
             <ul >
-                <li>
-                    <a href='/'>Home</a>
+                <li onClick={handleHome}>
+                    Home
                 </li>
-                <li >
-                    <a href='' onClick={handleUsers}>User Stats</a>
+                <li onClick={handleUsers}>
+                    User Stats
                 </li>
             </ul>
         </div>
