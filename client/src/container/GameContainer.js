@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { getDeck, dealDeck }  from '../components/GameService';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { getDeck, dealDeck } from '../components/GameService';
 import Welcome from '../components/Welcome.js'
 import Blackjack from '../components/Blackjack.js'
 import Users from '../components/Users.js'
 import Instructions from '../components/Instructions';
-import {postResult} from '../components/UserService'
+import { postResult } from '../components/UserService'
 import './gamecontainer.css'
 
 
@@ -28,45 +28,47 @@ const GameContainer = () => {
 
 
 
-    useEffect (() => {
+    useEffect(() => {
         getDeck()
-        .then((deck) => {
-        setFullDeck(deck.cards)
-        getAllUsers()
-    })
-    
+            .then((deck) => {
+                setFullDeck(deck.cards)
+                getAllUsers()
+            })
+
     }, [])
 
 
     useEffect(() => {
-    let dealerValue = handValue(dealerHand)
-    if(dealerValue <= 21){
-    setDealerTotal(dealerValue)
-    } 
-    else {
-        setDealerTotal('Bust')
-    }}, [dealerHand])
+        let dealerValue = handValue(dealerHand)
+        if (dealerValue <= 21) {
+            setDealerTotal(dealerValue)
+        }
+        else {
+            setDealerTotal('Bust')
+        }
+    }, [dealerHand])
 
 
 
     useEffect(() => {
-    if(dealerTotal < 16 && dealerHand.length >= 2){
-        dealerTwist()}
-    else if(dealerTotal >= 16 || dealerTotal === 'Bust'){
-        endGame();
-    }
-        
+        if (dealerTotal < 16 && dealerHand.length >= 2) {
+            dealerTwist()
+        }
+        else if (dealerTotal >= 16 || dealerTotal === 'Bust') {
+            endGame()
+        }
+
     }, [dealerTotal])
 
 
     useEffect(() => {
-    let playerValue = handValue(playerHand)
-      if (playerValue > 21){
-        setPlayerTotal("Bust")
-        dealersTurn()
-     }else{
-        setPlayerTotal(playerValue)
-     }
+        let playerValue = handValue(playerHand)
+        if (playerValue > 21) {
+            setPlayerTotal("Bust")
+            dealersTurn()
+        } else {
+            setPlayerTotal(playerValue)
+        }
     }, [playerHand])
 
     const setNewUser = (newUser) => {
@@ -76,13 +78,13 @@ const GameContainer = () => {
 
     const getAllUsers = () => {
         return fetch('http://localhost:9000/api/users')
-          .then(res => res.json())
-          .then(data => setAllUsers(data))
-      }
+            .then(res => res.json())
+            .then(data => setAllUsers(data))
+    }
 
 
 
-    const dealCards = () => { 
+    const dealCards = () => {
 
         setButtons(false)
 
@@ -94,8 +96,8 @@ const GameContainer = () => {
         const newPlayerHand = [...playerHand]
         const newDealerHand = [...dealerHand]
 
-        if (playerHand.length < 2 && dealerHand.length < 1){
-       
+        if (playerHand.length < 2 && dealerHand.length < 1) {
+
 
             let poppedCard = newDeck.pop()
             newPlayerHand.push(poppedCard)
@@ -119,40 +121,40 @@ const GameContainer = () => {
     const handValue = (hand) => {
         let total = 0
 
-        for (let card of hand){
-            if (card.value ===  'KING' || card.value === 'QUEEN' || card.value === 'JACK'){
+        for (let card of hand) {
+            if (card.value === 'KING' || card.value === 'QUEEN' || card.value === 'JACK') {
                 total += 10
             }
-            else if (card.value === 'ACE'){
+            else if (card.value === 'ACE') {
                 total += 11
             }
 
             else {
-            total += parseInt(card.value)
-        } 
+                total += parseInt(card.value)
+            }
+
+        }
+
+        console.log(total);
+        return total
 
     }
-
-    console.log(total);
-    return total
-
-}
 
 
     const playerTwist = () => {
-        if (playerHand.length >= 2){
-            
-        let newDeck = [...fullDeck]
-        let newPlayerHand = [...playerHand]
+        if (playerHand.length >= 2) {
 
-        let poppedCard = newDeck.pop()
-        newPlayerHand.push(poppedCard)
+            let newDeck = [...fullDeck]
+            let newPlayerHand = [...playerHand]
 
-        setPlayerHand(newPlayerHand)
-        setFullDeck(newDeck)
+            let poppedCard = newDeck.pop()
+            newPlayerHand.push(poppedCard)
 
+            setPlayerHand(newPlayerHand)
+            setFullDeck(newDeck)
+
+        }
     }
-}
 
     const playerStick = () => {
         dealersTurn()
@@ -173,7 +175,7 @@ const GameContainer = () => {
 
 
     const dealerTwist = () => {
-        
+
         let newDeck = [...fullDeck]
         let newDealerHand = [...dealerHand]
 
@@ -186,11 +188,8 @@ const GameContainer = () => {
     }
 
     const endGame = () => {
-        console.log(`player total is ${playerTotal}`);
-        console.log(`dealer total is ${dealerTotal}`);
 
-        if(playerTotal > dealerTotal){
-            console.log('Win')
+        if (playerTotal > dealerTotal) {
             setResult('Win')
             postResult({
                 name: user.name,
@@ -198,8 +197,7 @@ const GameContainer = () => {
             })
         }
 
-        else if (playerTotal != 'Bust' && dealerTotal === 'Bust'){
-            console.log('Win')
+        else if (playerTotal != 'Bust' && dealerTotal === 'Bust') {
             setResult('Win')
             postResult({
                 name: user.name,
@@ -208,8 +206,7 @@ const GameContainer = () => {
 
         }
 
-        else if (dealerTotal >= playerTotal || playerTotal === 'Bust'){
-            console.log('Lose')
+        else if (dealerTotal >= playerTotal || playerTotal === 'Bust') {
             setResult('Lose')
             postResult({
                 name: user.name,
@@ -217,12 +214,11 @@ const GameContainer = () => {
             })
         }
 
-        else { console.log('Error');
-        setResult('Error')}
+        else {
+            console.log('Error');
+            setResult('Error')
+        }
 
-
-
-      
     }
 
     const handleDeal = () => {
@@ -238,13 +234,13 @@ const GameContainer = () => {
     }
 
 
-    
+
     return (
         <div className='mainContainer'>
             <Routes>
-                <Route exact path="/" element={< Welcome setNewUser={setNewUser}/>} />
-                <Route exact path="/blackjack" element={< Blackjack playerHand = {playerHand} dealerHand = {dealerHand} result = {result} handleDeal = {handleDeal} handleStick = {handleStick} handleTwist = {handleTwist} buttons ={buttons} user ={user}/>} />
-                <Route exact path="/users" element={< Users allUsers={allUsers} user={user}/>} />
+                <Route exact path="/" element={< Welcome setNewUser={setNewUser} />} />
+                <Route exact path="/blackjack" element={< Blackjack playerHand={playerHand} dealerHand={dealerHand} result={result} handleDeal={handleDeal} handleStick={handleStick} handleTwist={handleTwist} buttons={buttons} user={user} />} />
+                <Route exact path="/users" element={< Users allUsers={allUsers} user={user} />} />
             </Routes>
         </div>
 
